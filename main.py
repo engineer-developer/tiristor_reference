@@ -1,12 +1,12 @@
 import csv
 import re
-from pathlib import Path
+import os
 import tkinter as tk
 from tkinter import Label, Entry, Button, messagebox, scrolledtext
 
 
-BASE_PATH = Path.cwd()
-CSV_FILE_PATH = BASE_PATH / "Tiristory.csv"
+CSV_FILE_PATH = os.path.join(".", "_internal", "DB", "Tiristory.csv")
+ICON_FILE = os.path.join(".", "_internal", "logo", "logo.ico")
 
 
 class TiristoryDirectoryApp(tk.Tk):
@@ -14,6 +14,7 @@ class TiristoryDirectoryApp(tk.Tk):
         super().__init__()
         self.title('Справочник тиристоров')
         self.geometry('640x550')
+        self.iconbitmap(ICON_FILE)
         self.storage = storage
 
         Label(self, text="Введите наименование тиристора:").pack(pady=10)
